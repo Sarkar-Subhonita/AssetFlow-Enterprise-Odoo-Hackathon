@@ -8,6 +8,8 @@ import Placeholder from './pages/Placeholder';
 import NotFound from './pages/NotFound';
 import DashboardLayout from './components/layout/DashboardLayout';
 import { ProtectedRoute } from './components/ProtectedRoute';
+import OrganizationSetup from './pages/admin/OrganizationSetup';
+import EmployeeDirectory from './pages/admin/EmployeeDirectory';
 
 export default function App() {
   return (
@@ -30,10 +32,8 @@ export default function App() {
 
           {/* authenticated — role-restricted */}
           <Route element={<ProtectedRoute allowedRoles={['ADMIN']} />}>
-            <Route
-              path="/organization-setup"
-              element={<Placeholder title="Organization Setup" />}
-            />
+            <Route path="/organization-setup" element={<OrganizationSetup />} />
+            <Route path="/employees" element={<EmployeeDirectory />} />
           </Route>
 
           <Route element={<ProtectedRoute allowedRoles={['ADMIN', 'ASSET_MANAGER']} />}>

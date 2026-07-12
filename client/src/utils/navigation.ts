@@ -8,6 +8,7 @@ import {
   ClipboardCheck,
   BarChart3,
   Bell,
+  Users,
 } from 'lucide-react';
 import { Role } from '../types/auth.types';
 
@@ -26,6 +27,7 @@ const ALL_ROLES: Role[] = ['EMPLOYEE', 'DEPARTMENT_HEAD', 'ASSET_MANAGER', 'ADMI
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Dashboard', path: '/dashboard', icon: LayoutDashboard, roles: ALL_ROLES },
   { label: 'Organization Setup', path: '/organization-setup', icon: Settings, roles: ['ADMIN'] },
+  { label: 'Employee Directory', path: '/employees', icon: Users, roles: ['ADMIN'] },
   { label: 'Assets', path: '/assets', icon: Boxes, roles: ALL_ROLES },
   {
     label: 'Allocation & Transfer',
