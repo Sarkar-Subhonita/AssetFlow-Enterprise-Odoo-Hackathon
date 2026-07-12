@@ -1,0 +1,9 @@
+// Wraps an async Express handler so thrown/rejected errors are
+// forwarded to next() instead of crashing the process.
+import { Request, Response, NextFunction, RequestHandler } from 'express';
+
+export const catchAsync =
+  (fn: (req: Request, res: Response, next: NextFunction) => Promise<any>): RequestHandler =>
+  (req, res, next) => {
+    Promise.resolve(fn(req, res, next)).catch(next);
+  };
